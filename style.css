@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+    /* palette*/
+    --bg-dark: oklch(0.1 0.01 146);
+    --bg: oklch(0.15 0.01 146);
+    --bg-light: oklch(0.2 0.01 146);
+    --text: oklch(0.96 0.02 146);
+    --text-muted: oklch(0.76 0.02 146);
+    --highlight: oklch(0.5 0.02 146);
+    --border: oklch(0.4 0.02 146);
+    --border-muted: oklch(0.3 0.02 146);
+    --primary: oklch(0.76 0.1 146);
+    --secondary: oklch(0.76 0.1 326);
+    --danger: oklch(0.7 0.05 30);
+    --warning: oklch(0.7 0.05 100);
+    --success: oklch(0.7 0.05 160);
+    --info: oklch(0.7 0.05 260);
+
+    /* type */
+    --ff: 'Marcellus' ,'Plus Jakarta Sans', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+    :root{
+        /* palette */
+        --bg-dark: oklch(0.92 0.01 146);
+        --bg: oklch(0.96 0.01 146);
+        --bg-light: oklch(1 0.01 146);
+        --text: oklch(0.15 0.02 146);
+        --text-muted: oklch(0.4 0.02 146);
+        --highlight: oklch(1 0.02 146);
+        --border: oklch(0.6 0.02 146);
+        --border-muted: oklch(0.7 0.02 146);
+        --primary: oklch(0.4 0.1 146);
+        --secondary: oklch(0.4 0.1 326);
+        --danger: oklch(0.5 0.05 30);
+        --warning: oklch(0.5 0.05 100);
+        --success: oklch(0.5 0.05 160);
+        --info: oklch(0.5 0.05 260);
+    }
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--ff);
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
