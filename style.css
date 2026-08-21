@@ -27,7 +27,7 @@
     --ff: 'Marcellus' ,'Plus Jakarta Sans', sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light){
     :root{
         /* palette */
         --bg-dark: oklch(0.92 0.01 146);
@@ -100,12 +100,41 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bg);
+    background-color: color-mix(in oklch, var(--bg) 90%, transparent);
+    backdrop-filter: blur(6px);
     padding: 1rem;
+    border-bottom: 1px solid var(--border);
 }
 
 .logo{
-    font: 800 clamp(2.5rem, 5vw + .5rem, 4rem) var(--ff);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: .1s ease;
+}
+
+.logo:hover{
+    color: var(--primary);
+}
+
+.logo-img{
+    width: 3rem;
+    height: auto;
+    fill: var(--text);
+    transition: .1s ease;
+}
+
+.logo:hover .logo-img{
+    fill: var(--primary);
+}
+
+.logo-text{
+    font: 500 clamp(1.2rem, 4vw + .5rem, 2rem) var(--ff);
 }
 
 .nav-links{
@@ -140,15 +169,49 @@ nav{
     #navLinks{
         position: absolute;
         top: 100%;
-        background-color: var(--bg);
         width: 100%;
         flex-direction: column;
         align-items: flex-end;
         padding: .5rem;
+        background-color: color-mix(in oklch, var(--bg) 90%, transparent);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--border);
+
+        display: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        
+        transition: 
+            opacity 0.1s ease, 
+            transform 0.1s ease, 
+            display 0.1s ease allow-discrete;
     }
 
     #navLinks.active{
         display: flex;
+        opacity: 1;
+        transform: translateY(0);
+
+        @starting-style {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    }
+
+    #closeIcon{
+        display: none;
+    }
+
+    #openIcon.active{
+        display: none;
+    }
+
+    #closeIcon.active{
+        display: block;
+    }
+
+    .navbar{
+        border-bottom: 0;
     }
 
     .menu-icon{
