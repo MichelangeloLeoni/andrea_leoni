@@ -56,12 +56,20 @@
 
 /* global */
 h1{
-    font: 800 clamp(3rem, 5vw + .5rem, 5rem) var(--ff);
+    font: 800 clamp(2.5rem, 5vw + .5rem, 4rem) var(--ff);
 }
 
 h2{
-    font: 500 clamp(1.25rem, 2vw + 0.5rem, 2.25rem) var(--ff);
+    font: 600 clamp(2rem, 5vw + .5rem, 3rem) var(--ff);
     line-height: 1.2;
+}
+
+h3{
+    font: 500 clamp(1.6rem, 4vw + .5rem, 2.6rem) var(--ff);
+}
+
+p{
+    font: 500 clamp(1rem, 1vw + .5rem, 2rem) var(--ff);
 }
 
 body{
@@ -86,20 +94,21 @@ nav{
 
 /* hero */
 .hero{
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     align-items: center;
-    box-sizing: border-box;
-    flex-wrap: wrap;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
     gap: 2rem;
-
-    padding: .5rem;
-
-    width: min(1000px, 80vw);
+    
+    width: min(1200px, 100%);
+    padding: 1rem;
 }
 
 .hero-image{
-    width: clamp(300px, 25vw, 500px);
+    width: 100%;
+
     object-fit: cover;
     object-position: bottom;
     border-radius: .5rem;
@@ -113,7 +122,7 @@ nav{
     flex-direction: column;
     flex: 1;
 
-    gap: 1rem;
+    gap: clamp(.1rem, .3vw + .02rem, 1.5rem);
 }
 
 .hero-title{
@@ -121,5 +130,65 @@ nav{
 }
 
 .hero-subtitle{
+    color: var(--text-muted);
+}
+
+/* main */
+main{
+    width: min(1200px, 100%);
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-title{
+    color: var(--primary);
+    align-self: flex-start;
+    text-align: start;
+    padding: 0 1rem;
+    margin-top: 2rem;;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 1rem;
+    gap: 1rem;
+    border: solid 1px var(--border-muted);
+    border-bottom: solid 1px var(--border);
+    border-radius: .5rem;
+    margin: .5rem;
+}
+
+.card-image{
+    width: clamp(250px, 80%, 400px);
+
+    object-fit: cover;
+    object-position: bottom;
+    border-radius: .5rem;
+    aspect-ratio: 1 / 1;
+}
+
+.card-text{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    flex: 1;
+
+    gap: clamp(.1rem, .3vw + .02rem, 1.5rem);
+}
+
+.card-title{
+}
+
+.card-subtitle{
     color: var(--text-muted);
 }
