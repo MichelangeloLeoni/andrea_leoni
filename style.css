@@ -125,7 +125,7 @@ nav{
     color: var(--primary);
 }
 
-.mobile-nav-links{
+#navLinks{
     display: none;
 }
 
@@ -137,11 +137,7 @@ nav{
 
 /* mobile */
 @media (max-width: 800px){
-    .navbar .nav-links{
-        display: none;
-    }
-
-    .nav-links{
+    #navLinks{
         position: absolute;
         top: 100%;
         background-color: var(--bg);
@@ -151,12 +147,16 @@ nav{
         padding: .5rem;
     }
 
-    .mobile-nav-links.active{
+    #navLinks.active{
         display: flex;
     }
 
     .menu-icon{
         display: block;
+    }
+
+    .navbar .nav-links{
+        display: none;
     }
 }
 
