@@ -100,6 +100,7 @@ body{
 nav{
     width: 100%;
 
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -148,6 +149,7 @@ nav{
     text-decoration: none;
     color: var(--text);
     transition: .1s ease;
+    height: 100%;
 
     &:hover{
         color: var(--primary);
@@ -176,6 +178,7 @@ nav{
         background-color: var(--bg);
 
         display: none;
+        z-index: 10;
     }
 
     #navLinks.active{
@@ -209,115 +212,42 @@ nav{
 
 /* hero */
 .hero{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-    align-items: center;
-    justify-items: center;
-    align-content: center;
+    width: 100%;
+    height: 80vh;
+    position: relative;
+
+    display: flex;
     justify-content: center;
-    gap: 2rem;
-    
-    width: min(1200px, 100%);
-    padding: 1rem;
+    align-items: center;
+    overflow: hidden;
 }
 
-.hero-image{
+.hero::before{
+    content: "";
+    position: absolute;
     width: 100%;
+    height: 100%;
 
-    object-fit: cover;
-    object-position: bottom;
-    aspect-ratio: 1 / 1;
+    background-image: url(img/hero_image.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    scale: 1.1;
+    filter: blur(2px);
+}
+
+.hero::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: color-mix(in oklch, var(--bg) 60%, transparent);
 }
 
 .hero-text{
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    flex: 1;
-
-    gap: clamp(.1rem, .3vw + .5rem, 1.8rem);
-}
-
-.hero-title{
-    color: var(--text);
-    position: relative;
-    display: inline-block;
-}
-
-.hero-title::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 4px;
-    width: 102%;
-    height: .2rem;
-    background-color: var(--primary);
-    border-radius: .5rem;
-    margin: 0 ;
-}
-
-.hero-subtitle{
-    color: var(--text-muted);
-}
-
-/* main */
-main{
-    width: min(1200px, 100%);
-}
-
-section{
-    display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.section-title{
-    color: var(--primary);
-    align-self: flex-start;
-    text-align: start;
-    padding: 0 1rem;
-    margin-top: 2rem;;
-}
-
-.card{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
-    padding: 1rem;
-    gap: 1rem;
-    border: solid 1px var(--border-muted);
-    border-bottom: solid 1px var(--border);
-    border-radius: .5rem;
-    margin: .5rem;
-}
-
-.card-image{
-    width: clamp(250px, 80%, 400px);
-
-    object-fit: cover;
-    object-position: bottom;
-    border-radius: .5rem;
-    aspect-ratio: 1 / 1;
-}
-
-.card-text{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    flex: 1;
-
-    gap: clamp(.1rem, .3vw + .02rem, 1.5rem);
-}
-
-.card-title{
-}
-
-.card-subtitle{
-    color: var(--text-muted);
 }
