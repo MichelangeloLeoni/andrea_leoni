@@ -149,7 +149,6 @@ nav{
     text-decoration: none;
     color: var(--text);
     transition: .1s ease;
-    height: 100%;
 
     &:hover{
         color: var(--primary);
@@ -233,7 +232,7 @@ nav{
     background-size: cover;
     background-position: center;
     scale: 1.1;
-    filter: blur(2px);
+    filter: blur(4px);
 }
 
 .hero::after{
@@ -245,9 +244,46 @@ nav{
     background-color: color-mix(in oklch, var(--bg) 60%, transparent);
 }
 
+@media (prefers-color-scheme: light){
+    .hero::after {
+        background-color: color-mix(in oklch, var(--bg) 40%, transparent);
+    }
+}
+
 .hero-text{
+    width: max(200px, 50%);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    z-index: 1;
+}
+
+.hero-text h1{
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    line-height: 0.8;
+}
+
+.hero-text #hero-under{
+    color: var(--primary);
+    margin-left: auto;
+    text-align: right;
+}
+
+.hero-text #hero-top{
+    margin-left: auto;
+    text-align: right;
+}
+
+.hero-text h4{
+    font-size: var(--step-1);
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+    width: fit-content;
+    text-align: left;
 }
