@@ -158,6 +158,8 @@ nav{
     cursor: pointer;
     fill: var(--primary);
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 /* mobile */
@@ -192,7 +194,7 @@ nav{
     }
 
     .menu-icon{
-        display: block;
+        display: flex;
     }
 
     .navbar .nav-links{
