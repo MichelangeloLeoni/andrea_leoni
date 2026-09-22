@@ -22,7 +22,7 @@
     --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
 
     /* type */
-    --ff: 'Marcellus' ,'Plus Jakarta Sans', sans-serif;
+    --ff: 'Marcellus', sans-serif;
     --step--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
     --step--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
     --step-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
@@ -72,10 +72,10 @@
 }
 
 /* global */
-h1 { font-size: var(--step-5); font-weight: 800;}
-h2 { font-size: var(--step-3); font-weight: 800;}
-h3 { font-size: var(--step-2); font-weight: 700;}
-h4 { font-size: var(--step-1); font-weight: 600;}
+h1 { font-size: var(--step-5); font-weight: 900;}
+h2 { font-size: var(--step-4); font-weight: 800;}
+h3 { font-size: var(--step-3); font-weight: 700;}
+h4 { font-size: var(--step-2); font-weight: 600;}
 p  { font-size: var(--step-0); font-weight: 400;}
 
 body{
@@ -329,10 +329,22 @@ nav {
     margin-inline: auto;
 }
 
-.lavorazioni {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: var(--space-2xs);
+.section-title {
+    width: fit-content;
+    position: relative;
+    margin-bottom: var(--space-3xs);
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    width: 102%;
+    height: 6px;
+    top: 74%;
+    left: -1%;
+    border-radius: 1px;
+    background-color: var(--primary);
+    z-index: -1;
 }
 
 .card {
@@ -345,12 +357,25 @@ nav {
     padding: var(--space-2xs);
     padding-top: var(--space-3xs);
     gap: var(--space-3xs);
+    transition: transform .2s ease;
+}
+
+.card:nth-child(2n) {
+    border-color: var(--secondary);
+
+    .card-title {
+        color: var(--secondary);
+    }
+}
+
+.card:hover {
+    transform: scale(1.02);
 }
 
 .card-title {
     padding-inline: var(--space-xs);
     color: var(--primary);
-    font-size: var(--step-0);
+    font-size: var(--step-1);
     font-weight: 600;
 }
 
@@ -366,10 +391,16 @@ nav {
     object-fit: cover;
 }
 
+/* lavorazioni */
+.lavorazioni {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: var(--space-2xs);
+}
+
 @media (max-width: 800px) {
     .lavorazioni {
         grid-template-columns: 1fr;
         row-gap: var(--space-2xs);
     }
 }
-
