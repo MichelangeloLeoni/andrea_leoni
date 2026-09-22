@@ -1,33 +1,39 @@
-const nav = document.querySelector("nav");
-const menuIcon = document.getElementById("menuIcon");
-const navLinks = document.getElementById("navLinks");
-const openIcon = document.getElementById("openIcon");
-const closeIcon = document.getElementById("closeIcon");
-const logo = document.querySelector(".logo");
-const mobileLinks = document.querySelectorAll(".mobileLink");
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("primary-navigation");
+const menuLinks = navLinks.querySelectorAll("a");
 
 function closeMenu() {
     navLinks.classList.remove("active");
-    openIcon.classList.remove("active");
-    closeIcon.classList.remove("active");
+    menuButton.setAttribute("aria-expanded", "false");
 }
 
-function toggleMenu() {
-    navLinks.classList.toggle("active");
-    openIcon.classList.toggle("active");
-    closeIcon.classList.toggle("active");
+function toggleMenu(event) {
+    event.stopPropagation();
+    const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+    
+    if (isExpanded) {
+        closeMenu();
+    } else {
+        navLinks.classList.add("active");
+        menuButton.setAttribute("aria-expanded", "true");
+    }
 }
 
-menuIcon.addEventListener("click", toggleMenu);
+menuButton.addEventListener("click", toggleMenu);
 
-logo.addEventListener("click", closeMenu);
-
-mobileLinks.forEach(link => {
+menuLinks.forEach(link => {
     link.addEventListener("click", closeMenu);
 });
 
 document.addEventListener("click", (event) => {
-    if (!nav.contains(event.target) && navLinks.classList.contains("active")) {
+    if (navLinks.classList.contains("active") && !navLinks.contains(event.target) && !menuButton.contains(event.target)) {
         closeMenu();
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navLinks.classList.contains("active")) {
+        closeMenu();
+        menuButton.focus();
     }
 });
