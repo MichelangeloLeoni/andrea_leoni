@@ -42,6 +42,14 @@
     --space-xl: clamp(3.375rem, 3.2216rem + 0.6818vw, 3.75rem);
     --space-2xl: clamp(4.5rem, 4.2955rem + 0.9091vw, 5rem);
     --space-3xl: clamp(6.75rem, 6.4432rem + 1.3636vw, 7.5rem);
+
+    /* Width */
+    --small: min(1000px, 94%);
+    --medium: min(1200px, 96%);
+    --large: min(1400px, 98%);
+
+    /* Animation */
+    --transition: all 0.3s ease-in-out;
 }
 
 @media (prefers-color-scheme: light){
@@ -76,7 +84,7 @@ h1 { font-size: var(--step-5); font-weight: 900;}
 h2 { font-size: var(--step-4); font-weight: 800;}
 h3 { font-size: var(--step-3); font-weight: 700;}
 h4 { font-size: var(--step-2); font-weight: 600;}
-p  { font-size: var(--step-0); font-weight: 400;}
+p  { font-size: var(--step--1); font-weight: 500; line-height: 1.5;}
 
 html {
     scroll-behavior: smooth;
@@ -96,7 +104,7 @@ body{
     flex-direction: column;
 }
 
-/* ------------------ NAV ----------------------------- */
+/* Navbar */
 nav {
     width: 100%;
     position: relative;
@@ -107,8 +115,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bg);
-    padding: var(--space-xs) var(--space-s);
+    margin-block: var(--space-xs);
+    margin-inline: auto;
+    width: var(--large);
 }
 
 .menu-button {
@@ -117,7 +126,7 @@ nav {
     border: none;
     cursor: pointer;
     fill: var(--primary);
-    padding: 0.2rem;
+    padding: var(--space-3xs);
 }
 
 .menu-button .icon-close {
@@ -131,14 +140,15 @@ nav {
     display: flex;
     align-items: center;
     text-decoration: none;
-    transition: .2s ease;
+    transition: var(--transition);
 }
 
 .logo-img {
     width: 2.4rem;
     height: auto;
     fill: var(--text);
-    transition: .2s ease;
+    margin-inline: var(--space-3xs);
+    transition: var(--transition);
 }
 
 .logo:hover .logo-img {
@@ -155,14 +165,14 @@ nav {
     font-size: var(--step-1);
     text-decoration: none;
     color: var(--text);
-    transition: .2s ease;
+    transition: var(--transition);
 }
 
 .nav-links li a:hover {
-    color: var(--primary);
+    color: var(--secondary);
 }
 
-/* ------------- MOBILE NAV ---------------- */
+/* Mobile nav */
 @media (max-width: 800px) {
     .menu-button {
         display: flex;
@@ -184,7 +194,7 @@ nav {
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        transition: var(--transition);
     }
 
     .nav-links.active {
@@ -194,7 +204,7 @@ nav {
     }
 }
 
-/* ----------- HERO ------------------------- */
+/* Hero */
 .hero{
     width: 100%;
     height: 80vh;
@@ -218,7 +228,7 @@ nav {
     background-size: cover;
     background-position: center;
     scale: 1.05;
-    filter: blur(1px);
+    filter: blur(1.5px);
 
     z-index: 1;
 }
@@ -285,50 +295,17 @@ nav {
 #cemento::before {
     content: "";
     position: absolute;
-    bottom: -.1rem;
+    top: 85%;
     left: 0;
     width: 100%;
     height: .2rem;
     background-color: var(--secondary);
-    border-radius: .5rem;
-}
-   
-.down-arrow{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-
-    transform: translateX(-50%);
-    z-index: 3;
-
-    cursor: pointer;
+    border-radius: 2px;
 }
 
-.down-arrow svg{
-    animation: arrow-down-up 2s ease-in-out infinite;
-    fill: var(--primary);
-
-    width: var(--space-2xl);
-    aspect-ratio: 1 / 1;
-}
-
-@keyframes arrow-down-up {
-  0%,
-  to {
-    transform: translateY(-5px);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-}
-
-/* ----------------- Container --------------------- */
+/* Container */
 .container {
-    width: min(1400px, 96%);
+    width: var(--medium);
     margin-block: var(--space-xs);
     margin-inline: auto;
 }
@@ -361,7 +338,7 @@ nav {
     padding: var(--space-2xs);
     padding-top: var(--space-3xs);
     gap: var(--space-3xs);
-    transition: transform .2s ease;
+    transition: var(--transition);
 }
 
 .card:nth-child(2n) {
