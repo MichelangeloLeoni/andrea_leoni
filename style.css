@@ -44,9 +44,9 @@
     --space-3xl: clamp(6.75rem, 6.4432rem + 1.3636vw, 7.5rem);
 
     /* Width */
-    --small: min(1000px, 94%);
-    --medium: min(1200px, 96%);
-    --large: min(1400px, 98%);
+    --small: min(1200px, 94%);
+    --medium: min(1400px, 96%);
+    --large: min(1600px, 98%);
 
     /* Animation */
     --transition: all 0.3s ease-in-out;
@@ -84,7 +84,7 @@ h1 { font-size: var(--step-5); font-weight: 900;}
 h2 { font-size: var(--step-4); font-weight: 800;}
 h3 { font-size: var(--step-3); font-weight: 700;}
 h4 { font-size: var(--step-2); font-weight: 600;}
-p  { font-size: var(--step--1); font-weight: 500; line-height: 1.5;}
+p  { font-size: var(--step-0); font-weight: 500; line-height: 1.5;}
 
 html {
     scroll-behavior: smooth;
@@ -117,7 +117,7 @@ nav {
     align-items: center;
     margin-block: var(--space-xs);
     margin-inline: auto;
-    width: var(--large);
+    width: var(--medium);
 }
 
 .menu-button {
@@ -372,7 +372,7 @@ nav {
     object-fit: cover;
 }
 
-/* lavorazioni */
+/* Lavorazioni */
 .lavorazioni {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -383,5 +383,38 @@ nav {
     .lavorazioni {
         grid-template-columns: 1fr;
         row-gap: var(--space-2xs);
+    }
+}
+
+/* Showroom */
+#showroom-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "text img";
+    justify-items: center;
+    gap: var(--space-2xs);
+}
+
+#showroom-text {
+    grid-area: text;
+}
+
+.showroom-image {
+    grid-area: img;
+    width: 20vw;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+@media (max-width: 800px) {
+    #showroom-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "text"
+            "img";
+    }
+
+    .showroom-image {
+        width: min(100%, 300px);
     }
 }
